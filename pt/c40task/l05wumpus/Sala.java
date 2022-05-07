@@ -4,23 +4,46 @@ public class Sala {
 
 	private int x;
 	private int y;
-	private Componente componente;
+	private Componente componentePrimaria;
+	private Componente componentesSecundarias[];
+	private boolean visitada;
+	private Heroi heroi; // heroi nao podera usar polimorfismo
 	
 	public Sala(int x, int y) {
 		
 		this.x = x;
 		this.y = y;
+		this.visitada = false;
+		componentesSecundarias = new Componente[2];
 		
 	}
 	
 	
 	public boolean conectaComponente(Componente componente) {
 		
-		if(componente == null) {
+		if(componente.getTipo() == 'W' || componente.getTipo() == 'B') {
 			
-			this.componente = componente;
+			if(componentePrimaria == null) {
+				
+				this.componentePrimaria = componente;
+				return true;
+			
+			}
+
+			else {
+				// erro
+				return false;
+			}
+				
+		}
+		
+		if(componentesSecundarias.length < 2) {
+			
+			componentesSecundarias[componentesSecundarias
+			                       .length] = componente; 
 			return true;
 		}
+		
 		
 		return false;	
 		
@@ -38,9 +61,25 @@ public class Sala {
 		return y;	
 	}
 	
-	public Componente getComponente() {
+	public Componente getComponentePrimaria() {
 		
-		return componente;
+		return componentePrimaria;
+	}
+	
+	public Componente[] getComponentesSecundarias() {
+		
+		return componentesSecundarias;
+	}
+	
+	public void visitar() {
+		
+		visitada = true;
+	}
+	
+	public boolean jaVisitada() {
+		
+		return visitada;
+				
 	}
 
 }
