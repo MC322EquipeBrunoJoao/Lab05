@@ -1,6 +1,6 @@
 package pt.c40task.l05wumpus;
 
-public class Componente {
+public abstract class Componente {
 	
 	protected int linhaCaverna, colunaCaverna;
 	private Caverna caverna;
@@ -20,4 +20,5 @@ public class Componente {
 		return colunaCaverna;
 	}
 	
+	public abstract char getTipo();
 }

@@ -2,9 +2,9 @@ package pt.c40task.l05wumpus;
 
 public class Wumpus extends Componente {
 	
-	public Wumpus(char tipo, int linhaCaverna, int colunaCaverna, Caverna caverna) {
+	public Wumpus(int linhaCaverna, int colunaCaverna, Caverna caverna) {
 		
-		super(tipo, linhaCaverna, colunaCaverna, caverna);
+		super(linhaCaverna, colunaCaverna, caverna);
 		if (linhaCaverna < 3) {
 			new Fedor(linhaCaverna+1, colunaCaverna, caverna);
 		}
