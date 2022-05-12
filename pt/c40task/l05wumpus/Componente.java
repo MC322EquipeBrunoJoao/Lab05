@@ -3,7 +3,7 @@ package pt.c40task.l05wumpus;
 public abstract class Componente {
 	
 	protected int linhaCaverna, colunaCaverna;
-	private Caverna caverna;
+	protected Caverna caverna;
 	
 	public Componente (int linhaCaverna, int colunaCaverna, Caverna caverna) {
 		this.linhaCaverna = linhaCaverna;

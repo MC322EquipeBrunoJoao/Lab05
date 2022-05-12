@@ -6,6 +6,8 @@ public class Heroi extends Componente {
 	private Random randomGenerator = new Random();
 	private int numFlechas = 1;
 	private boolean flechaEquipada = false;
+	private boolean carregandoOuro = false;
+	private boolean matouWumpus = false;
 	private int score = 0;
 	
 	public Heroi(int linhaCaverna, int colunaCaverna, Caverna caverna) {
@@ -36,27 +38,36 @@ public class Heroi extends Componente {
 		}
 	}
 	
-	public void equiparFlecha() {
-		if (numFlechas == 1) {
-			flechaEquipada = true;
+	public void addScore(int value) {
+		score += value;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void capturarOuro() {
+		if (caverna.getSala(linhaCaverna, colunaCaverna).temOuro()) {
+			carregandoOuro = true;
+			caverna.getSala(linhaCaverna, colunaCaverna).desconectaComponente('O'); //desconecta o componente de tipo "O" da sala
 		}
 	}
 	
-	public void desequiparFlecha() {
+	public void equiparFlecha() {
 		if (numFlechas == 1) {
-			flechaEquipada = false;
+			flechaEquipada = !flechaEquipada;
 		}
 	}
 	
 	/**
-	 * Retorna true se foi possível matar o Wumpus com o estado atual do herói. Caso contrário, retorna false.
+	 * Retorna true se foi possï¿½vel matar o Wumpus com o estado atual do herï¿½i. Caso contrï¿½rio, retorna false.
 	 */
-	public boolean atirarFlecha() {
+	public void atirarFlecha() {
 		if (flechaEquipada && randomGenerator.nextBoolean()) { 
-			return true;
+			matouWumpus = true;
 		}
 		else {
-			return false;
+			matouWumpus = false;
 		}
 	}
 	
@@ -68,8 +79,12 @@ public class Heroi extends Componente {
 		return 'P';
 	}
 	
-	public int getScore() {
-		return score;
+	public boolean getCarregandoOuro() {
+		return carregandoOuro;
+	}
+	
+	public boolean getMatouWumpus() {
+		return matouWumpus;
 	}
 	
  }
