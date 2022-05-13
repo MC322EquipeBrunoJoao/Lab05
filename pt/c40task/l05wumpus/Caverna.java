@@ -82,7 +82,7 @@ public class Caverna {
 			
 	}
 	
-public char[][] apresentaTudo(){ //para testes 
+	public char[][] apresentaTudo(){ //para testes 
 		
 		char[][] resultado = new char[4][4];
 		
@@ -108,5 +108,14 @@ public char[][] apresentaTudo(){ //para testes
 		return resultado;
 			
 	}
+	
+	public Sala getSala(int linha, int coluna) {
+		
+		return matrizSalas[linha][coluna];
+		
+	}
+
+
+
 	
 }

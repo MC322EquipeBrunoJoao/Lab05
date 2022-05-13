@@ -7,7 +7,7 @@ public class Sala {
 	private Componente componentePrimaria;
 	private Componente componentesSecundarias[];
 	private boolean visitada;
-	private Heroi heroi; // heroi nao podera usar polimorfismo
+	private Heroi heroi;
 	
 	public Sala(int x, int y) {
 		
@@ -71,6 +71,12 @@ public class Sala {
 		return componentesSecundarias;
 	}
 	
+	public Heroi getHeroi() {
+		
+		return heroi;
+		
+	}
+	
 	public void visitar() {
 		
 		visitada = true;
@@ -80,6 +86,59 @@ public class Sala {
 		
 		return visitada;
 				
+	}
+	
+	public boolean temOuro() {
+		
+		if(componentePrimaria.getTipo() == 'O')
+			return true;
+		
+		return false;
+			
+	}
+	
+	public void desconectaComponente(char tipo) {
+		
+		if(tipo == 'H') {
+			if(heroi == null) {
+				
+				System.out.println("Não há heroi nessa sala!");
+				return;
+			}
+			
+			heroi = null;
+			return;
+			
+		}
+		
+		if(tipo == 'O' || tipo == 'W' || tipo == 'B') {
+			
+			if(componentePrimaria.getTipo() != tipo) {
+				
+				System.out.println("Não há esta componente nesta sala!");
+				return;
+				
+			}
+			
+			componentePrimaria = null;
+			return;
+			
+		}
+			
+		
+			
+		for(int i = 0; i < 2; i++) {
+			
+			if(componentesSecundarias[i].getTipo() == tipo) {
+				
+				componentesSecundarias[i] = null;
+				return;
+			}
+			
+			System.out.println("Não há esta componente nesta sala!");
+		
+		}
+			
 	}
 
 }
