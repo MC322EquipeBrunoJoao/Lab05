@@ -24,7 +24,7 @@ public class AppWumpus {
       if (montador.getCavernaMontada()) { //get caverna montada retorna um boolean dizendo se foi possivel montar a caverna ou nao
 			
     	  Caverna caverna = montador.getCaverna(); //retonra o objeto caverna criado pelo montador
-		  Heroi heroi = caverna.getSala(1,1).getComponente(); //para pegar o heroi, buscamos a sala 1,1 da caverna e pegamos o componente dela
+		  Heroi heroi = caverna.getSala(1,1).getHeroi(); //para pegar o heroi, buscamos a sala 1,1 da caverna e pegamos o componente dela
 			
 		  tk.writeBoard(caverna.apresenta(), 0, 'x');
 	      System.out.println("=====");
