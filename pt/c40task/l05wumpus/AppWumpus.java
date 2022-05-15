@@ -32,7 +32,7 @@ public class AppWumpus {
 	      
 	      Controle controle = new Controle(heroi);
 		  
-		  if (movements == "") { //se há o arquivo de controle de movimentos
+		  if (movements == "") { //se nao ha o arquivo de controle de movimentos
 			  
 			  Scanner keyboard = new Scanner(System.in);
 			  controle.setPlayer(keyboard.nextLine());
@@ -72,7 +72,7 @@ public class AppWumpus {
 		
       }
       else {
-    	  System.out.println("Não foi possível iniciar o jogo com a caverna fornecida");
+    	  System.out.println("Nao foi possivel iniciar o jogo com a caverna fornecida");
       }
       
 /*      System.out.println("=== Caverna");
@@ -107,6 +107,7 @@ public class AppWumpus {
       status = 'n'; // 'w' para venceu; 'n' para perdeu; 'x' intermediárias
       tk.writeBoard(finalCave, score, status);
 */      
+      //teste
       tk.stop();
    }
 

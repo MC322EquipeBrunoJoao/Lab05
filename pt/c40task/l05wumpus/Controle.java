@@ -18,16 +18,12 @@ public class Controle {
 		switch(acao) {
 			case "w":
 				heroi.moverAcima();
-				heroi.addScore(-15);
 			case "d":
 				heroi.moverDireita();
-				heroi.addScore(-15);
 			case "s":
 				heroi.moverAbaixo();
-				heroi.addScore(-15);
 			case "a":
 				heroi.moverEsquerda();
-				heroi.addScore(-15);
 			case "k":
 				heroi.equiparFlecha();
 			case "c":
@@ -65,6 +61,10 @@ public class Controle {
 	
 	public boolean jogoEmAndamento() {
 		return !jogoAcabou;
+	}
+	
+	public void acabarJogo() {
+		jogoAcabou = true;
 	}
 	
 	public String toString() {

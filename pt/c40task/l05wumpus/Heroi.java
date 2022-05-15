@@ -16,25 +16,33 @@ public class Heroi extends Componente {
 	
 	public void moverAbaixo() {
 		if (linhaCaverna < 3) {
+			score -= 15;
 			linhaCaverna++;
+			caverna.moverComponente(this, linhaCaverna-1, colunaCaverna, linhaCaverna, colunaCaverna);
 		}
 	}
 	
 	public void moverAcima() {
 		if (linhaCaverna > 0) {
+			score -= 15;
 			linhaCaverna--;
+			caverna.moverComponente(this, linhaCaverna+1, colunaCaverna, linhaCaverna, colunaCaverna);
 		}
 	}
 	
 	public void moverEsquerda() {
 		if (colunaCaverna > 0) {
+			score -= 15;
 			colunaCaverna--;
+			caverna.moverComponente(this, linhaCaverna, colunaCaverna+1, linhaCaverna, colunaCaverna);
 		}
 	}
 	
 	public void moverDireita() {
 		if (colunaCaverna < 3) {
+			score -= 15;
 			colunaCaverna++;
+			caverna.moverComponente(this, linhaCaverna, colunaCaverna-1, linhaCaverna, colunaCaverna);
 		}
 	}
 	
@@ -60,18 +68,21 @@ public class Heroi extends Componente {
 	}
 	
 	/**
-	 * Retorna true se foi poss�vel matar o Wumpus com o estado atual do her�i. Caso contr�rio, retorna false.
+	 * Retorna true se foi possivel matar o Wumpus com o estado atual do heroi. Caso contrario, retorna false.
 	 */
 	public void atirarFlecha() {
-		if (flechaEquipada && randomGenerator.nextBoolean()) { 
+		if (flechaEquipada && randomGenerator.nextBoolean()) {
+			score += 500;
 			matouWumpus = true;
 		}
 		else {
+			score -= 1000;
 			matouWumpus = false;
 		}
 	}
 	
 	public void perderFlecha() {
+		score -= 100;
 		numFlechas = 0;
 	}
 	
