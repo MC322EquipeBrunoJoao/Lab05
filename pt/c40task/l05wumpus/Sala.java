@@ -2,24 +2,32 @@ package pt.c40task.l05wumpus;
 
 public class Sala {
 
-	private int x;
-	private int y;
+	private int linha;
+	private int coluna;
 	private Componente componentePrimaria;
 	private Componente componentesSecundarias[];
 	private boolean visitada;
 	private Heroi heroi;
+
+	
 	
 	public Sala(int x, int y) {
 		
-		this.x = x;
-		this.y = y;
+		this.linha = x;
+		this.coluna = y;
 		this.visitada = false;
 		componentesSecundarias = new Componente[2];
 		
 	}
 	
+	public void conectaHeroi(Heroi heroi) {
+		this.heroi = heroi;
+		
+	}
+	
 	
 	public boolean conectaComponente(Componente componente) {
+	
 		
 		if(componente.getTipo() == 'W' || componente.getTipo() == 'B') {
 			
@@ -50,15 +58,15 @@ public class Sala {
 	}
 	
 	
-	public int getX() {
+	public int getLinha() {
 		
-		return x;	
+		return linha;	
 	}
 	
 	
-	public int getY() {
+	public int getColuna() {
 		
-		return y;	
+		return coluna;	
 	}
 	
 	public Componente getComponentePrimaria() {
@@ -139,6 +147,40 @@ public class Sala {
 		
 		}
 			
+	}
+	
+	public void Verifica() {
+		
+		boolean flechaEquipada = heroi.getFlechaEquipada();
+		
+		switch(this.componentePrimaria.getTipo()) {
+		
+		case 'B':
+			if(flechaEquipada)
+				heroi.perderFlecha();
+			
+			heroi.cairNoBuraco();
+			return;
+		
+		case 'O':
+			if(flechaEquipada)
+				heroi.perderFlecha();
+			
+			heroi.capturarOuro();
+			return;
+			
+		case 'W':
+			heroi.atirarFlecha();			
+			return;
+		
+		default:
+			if(flechaEquipada)
+				heroi.perderFlecha();
+			
+			
+		}
+		
+		
 	}
 
 }

@@ -18,7 +18,7 @@ public class Heroi extends Componente {
 		if (linhaCaverna < 3) {
 			score -= 15;
 			linhaCaverna++;
-			caverna.moverComponente(this, linhaCaverna-1, colunaCaverna, linhaCaverna, colunaCaverna);
+			caverna.moverHeroi(this, linhaCaverna-1, colunaCaverna, linhaCaverna, colunaCaverna);
 		}
 	}
 	
@@ -26,7 +26,7 @@ public class Heroi extends Componente {
 		if (linhaCaverna > 0) {
 			score -= 15;
 			linhaCaverna--;
-			caverna.moverComponente(this, linhaCaverna+1, colunaCaverna, linhaCaverna, colunaCaverna);
+			caverna.moverHeroi(this, linhaCaverna+1, colunaCaverna, linhaCaverna, colunaCaverna);
 		}
 	}
 	
@@ -34,7 +34,7 @@ public class Heroi extends Componente {
 		if (colunaCaverna > 0) {
 			score -= 15;
 			colunaCaverna--;
-			caverna.moverComponente(this, linhaCaverna, colunaCaverna+1, linhaCaverna, colunaCaverna);
+			caverna.moverHeroi(this, linhaCaverna, colunaCaverna+1, linhaCaverna, colunaCaverna);
 		}
 	}
 	
@@ -42,7 +42,7 @@ public class Heroi extends Componente {
 		if (colunaCaverna < 3) {
 			score -= 15;
 			colunaCaverna++;
-			caverna.moverComponente(this, linhaCaverna, colunaCaverna-1, linhaCaverna, colunaCaverna);
+			caverna.moverHeroi(this, linhaCaverna, colunaCaverna-1, linhaCaverna, colunaCaverna);
 		}
 	}
 	
