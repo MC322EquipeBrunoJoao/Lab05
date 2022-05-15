@@ -7,6 +7,7 @@ public class Heroi extends Componente {
 	private int numFlechas = 1;
 	private boolean flechaEquipada = false;
 	private boolean carregandoOuro = false;
+	private boolean heroiAtivo = true; //true se o Heroi esta vivo ou livre para se mover
 	private boolean matouWumpus = false;
 	private int score = 0;
 	
@@ -50,10 +51,6 @@ public class Heroi extends Componente {
 		score += value;
 	}
 	
-	public int getScore() {
-		return score;
-	}
-	
 	public void capturarOuro() {
 		if (caverna.getSala(linhaCaverna, colunaCaverna).temOuro()) {
 			carregandoOuro = true;
@@ -77,13 +74,24 @@ public class Heroi extends Componente {
 		}
 		else {
 			score -= 1000;
-			matouWumpus = false;
+			heroiAtivo = false;
 		}
 	}
 	
 	public void perderFlecha() {
-		score -= 100;
-		numFlechas = 0;
+		if (numFlechas == 1) {
+			score -= 100;
+			numFlechas = 0;
+		}
+	}
+	
+	public void cairNoBuraco() {
+		score -= 1000;
+		heroiAtivo = false;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 	
 	public char getTipo() {
@@ -92,6 +100,14 @@ public class Heroi extends Componente {
 	
 	public boolean getCarregandoOuro() {
 		return carregandoOuro;
+	}
+	
+	public boolean getHeroiAtivo() {
+		return heroiAtivo;
+	}
+	
+	public boolean getFlechaEquipada() {
+		return flechaEquipada;
 	}
 	
 	public boolean getMatouWumpus() {

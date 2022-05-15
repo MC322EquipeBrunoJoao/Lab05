@@ -18,20 +18,32 @@ public class Controle {
 		switch(acao) {
 			case "w":
 				heroi.moverAcima();
+				break;
 			case "d":
 				heroi.moverDireita();
+				break;
 			case "s":
 				heroi.moverAbaixo();
+				break;
 			case "a":
 				heroi.moverEsquerda();
+				break;
 			case "k":
 				heroi.equiparFlecha();
+				break;
 			case "c":
 				heroi.capturarOuro();
+				break;
 			case "q":
-				if (heroi.getLinha() == 1 && heroi.getColuna() == 1) {
+				if (heroi.getLinha() == 1 && heroi.getColuna() == 1 && heroi.getMatouWumpus()) {
 					jogoAcabou = true;
+					if (heroi.getCarregandoOuro()) {
+						heroi.addScore(1000);
+					}
 				}
+		}
+		if (!heroi.getHeroiAtivo()) {
+			jogoAcabou = true;
 		}
 	}
 	
@@ -39,16 +51,22 @@ public class Controle {
 		switch(acao) {
 			case 'w':
 				heroi.moverAcima();
+				break;
 			case 'd':
 				heroi.moverDireita();
+				break;
 			case 's':
 				heroi.moverAbaixo();
+				break;
 			case 'a':
 				heroi.moverEsquerda();
+				break;
 			case 'k':
 				heroi.equiparFlecha();
+				break;
 			case 'c':
 				heroi.capturarOuro();
+				break;
 			case 'q':
 				if (heroi.getLinha() == 1 && heroi.getColuna() == 1 && heroi.getMatouWumpus()) {
 					jogoAcabou = true;
@@ -56,6 +74,9 @@ public class Controle {
 						heroi.addScore(1000);
 					}
 				}
+		}
+		if (!heroi.getHeroiAtivo()) {
+			jogoAcabou = true;
 		}
 	}
 	
