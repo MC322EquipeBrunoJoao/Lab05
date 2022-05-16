@@ -35,8 +35,10 @@ public class Toolkit {
                new FileReader(caveFile));
          tk.outputStr = new PrintWriter(
                new FileWriter(outputFile));
-         tk.moveStr = new BufferedReader(
-               new FileReader(moveFile));
+         if (movePath != null) {
+             tk.moveStr = new BufferedReader(
+             new FileReader(moveFile));
+         }
       } catch(IOException erro){
          erro.printStackTrace();
       }
@@ -69,7 +71,7 @@ public class Toolkit {
          }
          moveStr.close();
       } catch (Exception erro) {
-         erro.printStackTrace();
+         return "";
       }
       return v;
    }

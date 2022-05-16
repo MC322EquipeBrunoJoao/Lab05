@@ -45,6 +45,7 @@ public class AppWumpus {
 			      tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
 				  caverna.apresenta();
 			  }
+			  
 			  keyboard.close();
 			  
 		  }
