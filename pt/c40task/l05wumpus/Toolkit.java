@@ -39,6 +39,9 @@ public class Toolkit {
              tk.moveStr = new BufferedReader(
              new FileReader(moveFile));
          }
+         else {
+        	 tk.moveStr = null;
+         }
       } catch(IOException erro){
          erro.printStackTrace();
       }
@@ -64,14 +67,19 @@ public class Toolkit {
    public String retrieveMovements() {
       String v = "";
       try {
-         String line = moveStr.readLine();
-         while (line != null) {
-            v += line;
-            line = moveStr.readLine();
-         }
-         moveStr.close();
+    	 if (moveStr != null) {
+             String line = moveStr.readLine();
+             while (line != null) {
+                v += line;
+                line = moveStr.readLine();
+             }
+             moveStr.close();
+    	 }
+    	 else {
+    		 return "";
+    	 }
       } catch (Exception erro) {
-         return "";
+          erro.printStackTrace();
       }
       return v;
    }
@@ -97,7 +105,9 @@ public class Toolkit {
       try {
          caveStr.close();
          outputStr.close();
-         moveStr.close();
+         if (moveStr != null) {
+             moveStr.close();
+         }
       } catch(Exception erro){
          erro.printStackTrace();
       }
