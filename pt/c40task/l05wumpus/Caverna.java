@@ -56,19 +56,12 @@ public class Caverna {
 					else if (componenteP != null)
 						resultado[i][j] = componenteP.getTipo();
 
-					else if (componentesS.length > 0) {
-
-						for (Componente c : componentesS) {
-
-							resultado[i][j] = c.getTipo();
-
-							if (c.getTipo() == 'F') {
-								resultado[i][j] = 'F';
-								break;
-							}
-						}
-					}
-
+					else if ((componentesS[0] != null && componentesS[0].getTipo() == 'f') || (componentesS[1] != null && componentesS[1].getTipo() == 'f'))
+							resultado[i][j] = 'f';
+							
+					else if ((componentesS[0] != null && componentesS[0].getTipo() == 'b') || (componentesS[1] != null && componentesS[1].getTipo() == 'b'))
+							resultado[i][j] = 'b';
+					
 					else
 						resultado[i][j] = '#';
 				}

@@ -46,7 +46,8 @@ public class AppWumpus {
 				  controle.acaoHeroi(keyboard.nextLine());
 			      System.out.println("=====");
 			      tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
-				  caverna.apresenta();
+				  caverna.imprime();
+				  System.out.println(controle);
 			  }
 			  
 			  keyboard.close();
@@ -63,6 +64,8 @@ public class AppWumpus {
 				      System.out.println("=====");
 					  controle.acaoHeroi(movements.charAt(i));
 					  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
+					  caverna.imprime();
+					  System.out.println(controle);
 				  }
 				  else {
 					  break;
