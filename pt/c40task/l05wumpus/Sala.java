@@ -157,12 +157,12 @@ public class Sala {
 				heroi.cairNoBuraco();
 				return;
 
-			case 'O':
-				if (flechaEquipada)
-					heroi.perderFlecha();
-
-				heroi.capturarOuro();
-				return;
+			//case 'O':
+			//	if (flechaEquipada)
+			//		heroi.perderFlecha();
+//
+//				heroi.capturarOuro();
+				//return;
 
 			case 'W':
 				heroi.atirarFlecha();

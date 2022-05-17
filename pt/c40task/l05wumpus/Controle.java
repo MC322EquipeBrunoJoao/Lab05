@@ -5,6 +5,7 @@ public class Controle {
 	private String player;
 	private Heroi heroi;
 	private boolean jogoAcabou = false;
+	private char status;
 	
 	public Controle(Heroi heroi) {
 		this.heroi = heroi;
@@ -35,14 +36,18 @@ public class Controle {
 				heroi.capturarOuro();
 				break;
 			case "q":
-				if (heroi.getLinha() == 1 && heroi.getColuna() == 1 && heroi.getMatouWumpus()) {
-					jogoAcabou = true;
-					if (heroi.getCarregandoOuro()) {
-						heroi.addScore(1000);
-					}
-				}
+				status = 'q';
+				jogoAcabou = true;
+		}
+		if (heroi.getLinha() == 0 && heroi.getColuna() == 0 && heroi.getCarregandoOuro()) {
+			jogoAcabou = true;
+			status = 'w';
+			if (heroi.getMatouWumpus()) {
+				heroi.addScore(1000);
+			}
 		}
 		if (!heroi.getHeroiAtivo()) {
+			status = 'n';
 			jogoAcabou = true;
 		}
 	}
@@ -68,14 +73,19 @@ public class Controle {
 				heroi.capturarOuro();
 				break;
 			case 'q':
-				if (heroi.getLinha() == 1 && heroi.getColuna() == 1 && heroi.getMatouWumpus()) {
-					jogoAcabou = true;
-					if (heroi.getCarregandoOuro()) {
-						heroi.addScore(1000);
-					}
-				}
+				status = 'q';
+				jogoAcabou = true;
+
+		}
+		if (heroi.getLinha() == 0 && heroi.getColuna() == 0 && heroi.getCarregandoOuro()) {
+			jogoAcabou = true;
+			status = 'w';
+			if (heroi.getMatouWumpus()) {
+				heroi.addScore(1000);
+			}
 		}
 		if (!heroi.getHeroiAtivo()) {
+			status = 'n';
 			jogoAcabou = true;
 		}
 	}
@@ -88,7 +98,11 @@ public class Controle {
 		jogoAcabou = true;
 	}
 	
+	public char getStatus() {
+		return status;
+	}
+	
 	public String toString() {
-		return "Player: " + player + "\nScore: " + heroi.getScore() + "\n";
+		return "Player: " + player + "\nScore: " + heroi.getScore();
 	}
 }

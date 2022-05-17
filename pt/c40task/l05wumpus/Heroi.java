@@ -55,9 +55,9 @@ public class Heroi extends Componente {
 	}
 	
 	public void capturarOuro() {
-		if (caverna.getSala(linhaCaverna, colunaCaverna).temOuro()) {
+		if (caverna.getSala(linhaCaverna+1, colunaCaverna+1).temOuro()) {
 			carregandoOuro = true;
-			caverna.getSala(linhaCaverna, colunaCaverna).desconectaComponente('O'); //desconecta o componente de tipo "O" da sala
+			caverna.getSala(linhaCaverna+1, colunaCaverna+1).desconectaComponente('O'); //desconecta o componente de tipo "O" da sala
 		}
 	}
 	
@@ -74,6 +74,7 @@ public class Heroi extends Componente {
 		if (flechaEquipada && randomGenerator.nextBoolean()) {
 			score += 500;
 			matouWumpus = true;
+			caverna.getSala(linhaCaverna+1, colunaCaverna+1).desconectaComponente('W');
 		}
 		else {
 			score -= 1000;

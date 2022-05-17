@@ -21,7 +21,7 @@ public class Caverna {
 		if (matrizSalas[x][y].conectaComponente(componente))
 			return;
 
-		// Considerar o que acontece se o Componente não conseguir se conectar
+		// Considerar o que acontece se o Componente nï¿½o conseguir se conectar
 		System.out.println("O componente nao pode se conectar!"
 				+ "x: " + x + "y: " + y + "Tipo: " + componente.getTipo());
 		
@@ -48,13 +48,13 @@ public class Caverna {
 				Componente componentesS[] = sala.getComponentesSecundarias();
 
 				if (sala.jaVisitada()) {
+
+					if (componenteP != null)
+						resultado[i][j] = componenteP.getTipo();
 					
-					if(heroi != null) {
+					else if(heroi != null) {
 						resultado[i][j] = 'P';
 					}
-
-					else if (componenteP != null)
-						resultado[i][j] = componenteP.getTipo();
 
 					else if ((componentesS[0] != null && componentesS[0].getTipo() == 'f') || (componentesS[1] != null && componentesS[1].getTipo() == 'f'))
 							resultado[i][j] = 'f';
