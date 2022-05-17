@@ -28,7 +28,10 @@ public class AppWumpus {
 			
 		  tk.writeBoard(caverna.apresenta(), 0, 'x');
 	      System.out.println("=====");
-	      caverna.apresenta();
+	      caverna.imprime();
+	      
+	    	  
+	      
 	      
 	      Controle controle = new Controle(heroi);
 		  

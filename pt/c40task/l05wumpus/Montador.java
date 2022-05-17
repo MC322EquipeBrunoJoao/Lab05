@@ -31,16 +31,19 @@ public class Montador {
 	}
 
 	public void montarCaverna(String[][] caverna) {
+		
+		
 
 		for (String[] stringComponente : caverna) {
 
-			int linha = stringComponente[0].charAt(0);
-			int coluna = stringComponente[1].charAt(0);
+			int linha = Character.getNumericValue(stringComponente[0].charAt(0)) - 1;
+			int coluna = Character.getNumericValue(stringComponente[1].charAt(0)) - 1;
 			char tipo = stringComponente[2].charAt(0);
 
 			insereComponente(linha, coluna, tipo);
 
 		}
+		montada = true;
 
 	}
 
@@ -61,7 +64,7 @@ public class Montador {
 		if (tipo == 'P') {
 
 			if (qtdHeroi < 1) {
-				new Heroi(1, 1, caverna);
+				new Heroi(0, 0, caverna);
 				qtdHeroi += 1;
 			}
 		}
@@ -90,8 +93,7 @@ public class Montador {
 			new Ouro(linhaCaverna, colunaCaverna, caverna);
 
 		}
-		else
-			System.out.println("Componente inválida!");
+		
 
 	}
 

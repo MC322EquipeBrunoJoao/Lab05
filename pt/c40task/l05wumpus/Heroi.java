@@ -12,7 +12,10 @@ public class Heroi extends Componente {
 	private int score = 0;
 	
 	public Heroi(int linhaCaverna, int colunaCaverna, Caverna caverna) {
-		super(linhaCaverna, colunaCaverna, caverna);
+		this.linhaCaverna = linhaCaverna;
+		this.colunaCaverna = colunaCaverna;
+		this.caverna = caverna;
+		caverna.incluirSalaHeroi(this, linhaCaverna, colunaCaverna);
 	}
 	
 	public void moverAbaixo() {

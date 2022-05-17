@@ -8,15 +8,23 @@ public class Caverna {
 
 		this.matrizSalas = matrizSalas;
 	}
+	
+	public void incluirSalaHeroi(Heroi heroi, int x, int y) {
+		
+		matrizSalas[x][y].conectaHeroi(heroi);
+		
+		
+	}
 
-	public void incluirSala(Componente componente, int x, int y) {
+	public void incluirSalaComponente(Componente componente, int x, int y) {
 
 		if (matrizSalas[x][y].conectaComponente(componente))
 			return;
 
 		// Considerar o que acontece se o Componente não conseguir se conectar
-
-		return;
+		System.out.println("O componente nao pode se conectar!"
+				+ "x: " + x + "y: " + y + "Tipo: " + componente.getTipo());
+		
 
 	}
 
@@ -35,12 +43,17 @@ public class Caverna {
 			for (int j = 0; j < 4; j++) {
 
 				Sala sala = matrizSalas[i][j];
+				Heroi heroi  = sala.getHeroi();
 				Componente componenteP = sala.getComponentePrimaria();
 				Componente componentesS[] = sala.getComponentesSecundarias();
 
 				if (sala.jaVisitada()) {
+					
+					if(heroi != null) {
+						resultado[i][j] = 'P';
+					}
 
-					if (componenteP != null)
+					else if (componenteP != null)
 						resultado[i][j] = componenteP.getTipo();
 
 					else if (componentesS.length > 0) {
@@ -100,7 +113,7 @@ public class Caverna {
 
 	public Sala getSala(int linha, int coluna) {
 
-		return matrizSalas[linha][coluna];
+		return matrizSalas[linha - 1][coluna - 1];
 
 	}
 
@@ -112,6 +125,22 @@ public class Caverna {
 
 		matrizSalas[linhaChegada][colunaChegada].Verifica();
 
+	}
+	
+	public void imprime() {
+		char apresentacao[][] = this.apresenta();
+		
+		for(int i=0; i < 4; i++) {
+	    	  
+	    	  for(int j=0; j < 4; j++) {
+	    		  System.out.print(apresentacao[i][j]);
+	    	  }
+	    	  System.out.print("\n");
+	    	  
+	    	  
+	      }
+		
+		
 	}
 
 }

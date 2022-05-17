@@ -5,11 +5,13 @@ public abstract class Componente {
 	protected int linhaCaverna, colunaCaverna;
 	protected Caverna caverna;
 	
+	public Componente() {}
+	
 	public Componente (int linhaCaverna, int colunaCaverna, Caverna caverna) {
 		this.linhaCaverna = linhaCaverna;
 		this.colunaCaverna = colunaCaverna;
 		this.caverna = caverna;
-		caverna.incluirSala(this, linhaCaverna, colunaCaverna);
+		caverna.incluirSalaComponente(this, linhaCaverna, colunaCaverna);
 	}
 	
 	public int getLinha() {
