@@ -41,9 +41,10 @@ public class Controle {
 		}
 		if (heroi.getLinha() == 0 && heroi.getColuna() == 0 && heroi.getCarregandoOuro()) {
 			jogoAcabou = true;
+			heroi.addScore(1000);
 			status = 'w';
 			if (heroi.getMatouWumpus()) {
-				heroi.addScore(1000);
+				heroi.addScore(500);
 			}
 		}
 		if (!heroi.getHeroiAtivo()) {
