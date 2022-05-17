@@ -24,22 +24,18 @@ public class AppWumpus {
       if (montador.getCavernaMontada()) { //get caverna montada retorna um boolean dizendo se foi possivel montar a caverna ou nao
 			
     	  Caverna caverna = montador.getCaverna(); //retonra o objeto caverna criado pelo montador
-		  Heroi heroi = caverna.getSala(1,1).getHeroi(); //para pegar o heroi, buscamos a sala 1,1 da caverna e pegamos o componente dela
-			
-		  tk.writeBoard(caverna.apresenta(), 0, 'x');
-	      System.out.println("=====");
-	      caverna.imprime();
-	      
-	    	  
-	      
+		  Heroi heroi = caverna.getSala(1,1).getHeroi(); //para pegar o heroi, buscamos a sala 1,1 da caverna e pegamos o componente dela	      
 	      
 	      Controle controle = new Controle(heroi);
+		  tk.writeBoard(caverna.apresenta(), 0, 'x');
 		  
 		  if (movements == "") { //se nao ha o arquivo de controle de movimentos
 			  
 			  Scanner keyboard = new Scanner(System.in);
 			  controle.setPlayer(keyboard.nextLine());
 			  
+		      System.out.println("=====");
+		      caverna.imprime();
 		      System.out.println(controle);
 			  
 			  while (controle.jogoEmAndamento()) {
@@ -56,7 +52,9 @@ public class AppWumpus {
 		  else {
 			  
 			  controle.setPlayer("Alcebiades");
-		      System.out.println(controle);
+		      System.out.println("=====");
+		      caverna.imprime();
+			  System.out.println(controle);
 		      
 			  
 			  for (int i = 0; i < movements.length(); i++) {
@@ -74,7 +72,7 @@ public class AppWumpus {
 			  
 		  }
 	      System.out.println("=====");
-	      caverna.apresenta();
+	      caverna.imprime();
 	      System.out.println(controle);
 		  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
 		

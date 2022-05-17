@@ -94,7 +94,7 @@ public class Sala {
 
 	public boolean temOuro() {
 
-		if (componentePrimaria.getTipo() == 'O')
+		if (componentePrimaria != null && componentePrimaria.getTipo() == 'O')
 			return true;
 
 		return false;
@@ -106,7 +106,7 @@ public class Sala {
 		if (tipo == 'H') {
 			if (heroi == null) {
 
-				System.out.println("Não há heroi nessa sala!");
+				System.out.println("Nï¿½o hï¿½ heroi nessa sala!");
 				return;
 			}
 
@@ -117,9 +117,9 @@ public class Sala {
 
 		if (tipo == 'O' || tipo == 'W' || tipo == 'B') {
 
-			if (componentePrimaria.getTipo() != tipo) {
+			if (componentePrimaria != null && componentePrimaria.getTipo() != tipo) {
 
-				System.out.println("Não há esta componente nesta sala!");
+				System.out.println("Nï¿½o hï¿½ esta componente nesta sala!");
 				return;
 
 			}
@@ -131,13 +131,13 @@ public class Sala {
 
 		for (int i = 0; i < 2; i++) {
 
-			if (componentesSecundarias[i].getTipo() == tipo) {
+			if (componentesSecundarias[i] != null &&  componentesSecundarias[i].getTipo() == tipo) {
 
 				componentesSecundarias[i] = null;
 				return;
 			}
 
-			System.out.println("Não há esta componente nesta sala!");
+			System.out.println("Nï¿½o hï¿½ esta componente nesta sala!");
 
 		}
 
