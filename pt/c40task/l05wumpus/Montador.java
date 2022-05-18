@@ -21,7 +21,7 @@ public class Montador {
 
 			for (int j = 0; j < 4; j++) {
 
-				matrizSalas[i][j] = new Sala(i, j, new Componente[1], new Componente[2]);
+				matrizSalas[i][j] = new Sala(i, j, new Componente[3]);
 			}
 
 		}
