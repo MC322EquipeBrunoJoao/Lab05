@@ -5,6 +5,7 @@ public class Heroi extends Componente {
 	
 	private Random randomGenerator = new Random();
 	private int numFlechas = 1;
+	private int prioridade = 2;
 	private boolean flechaEquipada = false;
 	private boolean carregandoOuro = false;
 	private boolean heroiAtivo = true; //true se o Heroi esta vivo ou livre para se mover
@@ -55,9 +56,11 @@ public class Heroi extends Componente {
 	}
 	
 	public void capturarOuro() {
-		if (caverna.getSala(linhaCaverna+1, colunaCaverna+1).temOuro()) {
+
+		if (caverna.getSala(linhaCaverna + 1, colunaCaverna + 1).temOuro()) {
 			carregandoOuro = true;
-			caverna.getSala(linhaCaverna+1, colunaCaverna+1).desconectaComponente('O'); //desconecta o componente de tipo "O" da sala
+			caverna.getSala(linhaCaverna + 1, colunaCaverna + 1).desconectaComponente('O'); //desconecta o componente de tipo "O" da sala
+
 		}
 	}
 	
@@ -116,6 +119,9 @@ public class Heroi extends Componente {
 	
 	public boolean getMatouWumpus() {
 		return matouWumpus;
+	}
+	public int getPrioridade() {
+		return prioridade;
 	}
 	
  }

@@ -4,18 +4,20 @@ public class Sala {
 
 	private int linha;
 	private int coluna;
-	private Componente componentePrimaria;
+	private Componente componentesPrimarias[];
+	private int qtdComponentesPrimarias;
 	private Componente componentesSecundarias[];
 	private int qtdComponentesSecundarias;
 	private boolean visitada;
 	private Heroi heroi;
 
-	public Sala(int x, int y) {
+	public Sala(int x, int y, Componente componentesPrimarias[], Componente componentesSecundarias[]) {
 
 		this.linha = x;
 		this.coluna = y;
 		this.visitada = false;
-		componentesSecundarias = new Componente[2];
+		this.componentesPrimarias = componentesPrimarias;
+		this.componentesSecundarias = componentesSecundarias;
 		qtdComponentesSecundarias = 0;
 
 	}
@@ -28,23 +30,15 @@ public class Sala {
 
 	public boolean conectaComponente(Componente componente) {
 
-		if (componente.getTipo() == 'W' || componente.getTipo() == 'B' || componente.getTipo() == 'O') {
+		if (componente.getPrioridade() > 2 && qtdComponentesPrimarias < 1) {
 
-			if (componentePrimaria == null) {
-
-				this.componentePrimaria = componente;
-				return true;
-
-			}
-
-			else {
-				// erro
-				return false;
-			}
+			this.componentesPrimarias[qtdComponentesPrimarias] = componente;
+			qtdComponentesPrimarias += 1;
+			return true;
 
 		}
 
-		if (qtdComponentesSecundarias < 2) {
+		else if (qtdComponentesSecundarias < 2) {
 
 			componentesSecundarias[qtdComponentesSecundarias] = componente;
 			qtdComponentesSecundarias += 1;
@@ -52,6 +46,41 @@ public class Sala {
 		}
 
 		return false;
+
+	}
+
+	public Componente getComponenteMaiorPrioridade() {
+
+		Componente resultado = null;
+		int prioridadeMax = -1;
+		if (this.heroi != null) {
+
+			resultado = heroi;
+			prioridadeMax = heroi.getPrioridade();
+
+		}
+
+		for (int i = 0; i < componentesPrimarias.length; i++) {
+
+			if (componentesPrimarias[i] != null && componentesPrimarias[i].getPrioridade() > prioridadeMax) {
+
+				prioridadeMax = componentesPrimarias[i].getPrioridade();
+				resultado = componentesPrimarias[i];
+			}
+
+		}
+
+		for (int i = 0; i < componentesSecundarias.length; i++) {
+
+			if (componentesSecundarias[i] != null && componentesSecundarias[i].getPrioridade() > prioridadeMax) {
+
+				prioridadeMax = componentesSecundarias[i].getPrioridade();
+				resultado = componentesSecundarias[i];
+			}
+
+		}
+
+		return resultado;
 
 	}
 
@@ -67,7 +96,7 @@ public class Sala {
 
 	public Componente getComponentePrimaria() {
 
-		return componentePrimaria;
+		return componentesPrimarias[0];
 	}
 
 	public Componente[] getComponentesSecundarias() {
@@ -94,7 +123,8 @@ public class Sala {
 
 	public boolean temOuro() {
 
-		if (componentePrimaria != null && componentePrimaria.getTipo() == 'O')
+
+		if (this.getComponenteMaiorPrioridade().getTipo() == 'O')
 			return true;
 
 		return false;
@@ -115,21 +145,19 @@ public class Sala {
 
 		}
 
-		if (tipo == 'O' || tipo == 'W' || tipo == 'B') {
+		for (int i = 0; i < qtdComponentesPrimarias; i++) {
+			if (tipo == 'O' || tipo == 'W' || tipo == 'B') {
 
-			if (componentePrimaria != null && componentePrimaria.getTipo() != tipo) {
+				if (componentesPrimarias[i].getTipo() == tipo) {
 
-				System.out.println("N�o h� esta componente nesta sala!");
-				return;
+					componentesPrimarias[i] = null;
+					return;
 
+				}
 			}
-
-			componentePrimaria = null;
-			return;
-
-		}
-
-		for (int i = 0; i < 2; i++) {
+		}	
+				
+		for (int i = 0; i < qtdComponentesSecundarias; i++) {
 
 			if (componentesSecundarias[i] != null &&  componentesSecundarias[i].getTipo() == tipo) {
 
@@ -147,8 +175,8 @@ public class Sala {
 
 		boolean flechaEquipada = heroi.getFlechaEquipada();
 
-		if (this.componentePrimaria != null) {
-			switch (this.componentePrimaria.getTipo()) {
+		if (this.componentesPrimarias[0] != null) {
+			switch (this.componentesPrimarias[0].getTipo()) {
 
 			case 'B':
 				if (flechaEquipada)

@@ -4,7 +4,7 @@ public class Wumpus extends Componente {
 	
 	public Wumpus(int linhaCaverna, int colunaCaverna, Caverna caverna) {
 		
-		super(linhaCaverna, colunaCaverna, caverna);
+		super(linhaCaverna, colunaCaverna, caverna, 3);
 		if (linhaCaverna < 3) {
 			new Fedor(linhaCaverna+1, colunaCaverna, caverna);
 		}

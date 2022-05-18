@@ -43,29 +43,19 @@ public class Caverna {
 			for (int j = 0; j < 4; j++) {
 
 				Sala sala = matrizSalas[i][j];
-				Heroi heroi  = sala.getHeroi();
-				Componente componenteP = sala.getComponentePrimaria();
-				Componente componentesS[] = sala.getComponentesSecundarias();
+				Componente componente = sala.getComponenteMaiorPrioridade();
 
-				if (sala.jaVisitada()) {
 
-					if (componenteP != null)
-						resultado[i][j] = componenteP.getTipo();
+				if(sala.jaVisitada()) {
 					
-					else if(heroi != null) {
-						resultado[i][j] = 'P';
-					}
+					if(componente != null)
+						resultado[i][j] = componente.getTipo();
 
-					else if ((componentesS[0] != null && componentesS[0].getTipo() == 'f') || (componentesS[1] != null && componentesS[1].getTipo() == 'f'))
-							resultado[i][j] = 'f';
-							
-					else if ((componentesS[0] != null && componentesS[0].getTipo() == 'b') || (componentesS[1] != null && componentesS[1].getTipo() == 'b'))
-							resultado[i][j] = 'b';
 					
 					else
 						resultado[i][j] = '#';
+					
 				}
-
 				else
 					resultado[i][j] = '-';
 
@@ -77,32 +67,7 @@ public class Caverna {
 
 	}
 
-	public char[][] apresentaTudo() { // para testes
 
-		char[][] resultado = new char[4][4];
-
-		for (int i = 0; i < 4; i++) {
-
-			resultado[i] = new char[4];
-
-			for (int j = 0; j < 4; j++) {
-
-				Sala sala = matrizSalas[i][j];
-				Componente componente = sala.getComponentePrimaria();
-
-				if (componente != null)
-					resultado[i][j] = componente.getTipo();
-
-				else
-					resultado[i][j] = '-';
-
-			}
-
-		}
-
-		return resultado;
-
-	}
 
 	public Sala getSala(int linha, int coluna) {
 

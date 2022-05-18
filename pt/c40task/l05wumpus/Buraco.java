@@ -3,7 +3,7 @@ package pt.c40task.l05wumpus;
 public class Buraco extends Componente {
 	
 	public Buraco (int linhaCaverna, int colunaCaverna, Caverna caverna) {
-		super(linhaCaverna, colunaCaverna, caverna);
+		super(linhaCaverna, colunaCaverna, caverna, 3);
 		if (linhaCaverna < 3) {
 			new Brisa(linhaCaverna+1, colunaCaverna, caverna);
 		}
