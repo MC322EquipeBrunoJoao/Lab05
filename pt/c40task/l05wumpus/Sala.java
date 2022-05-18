@@ -6,8 +6,6 @@ public class Sala {
 	private int coluna;
 	private Componente componentes[];
 	private int qtdComponentes;
-
-
 	private boolean visitada;
 	private Heroi heroi;
 
