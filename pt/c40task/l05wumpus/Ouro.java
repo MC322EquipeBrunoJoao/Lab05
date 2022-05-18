@@ -5,6 +5,7 @@ public class Ouro extends Componente {
 	
 	public Ouro(int linhaCaverna, int colunaCaverna, Caverna caverna) {
 		super(linhaCaverna, colunaCaverna, caverna, 3);
+		caverna.incluirSalaComponente(this, linhaCaverna, colunaCaverna);
 	}
 	
 	public char getTipo() {

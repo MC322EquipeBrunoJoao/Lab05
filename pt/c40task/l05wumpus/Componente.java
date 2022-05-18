@@ -13,7 +13,6 @@ public abstract class Componente {
 		this.colunaCaverna = colunaCaverna;
 		this.caverna = caverna;
 		this.prioridade = prioridade;
-		caverna.incluirSalaComponente(this, linhaCaverna, colunaCaverna);
 	}
 	
 	public int getLinha() {

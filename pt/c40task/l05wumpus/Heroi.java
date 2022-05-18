@@ -5,7 +5,6 @@ public class Heroi extends Componente {
 	
 	private Random randomGenerator = new Random();
 	private int numFlechas = 1;
-	private int prioridade = 2;
 	private boolean flechaEquipada = false;
 	private boolean carregandoOuro = false;
 	private boolean heroiAtivo = true; //true se o Heroi esta vivo ou livre para se mover
@@ -13,9 +12,7 @@ public class Heroi extends Componente {
 	private int score = 0;
 	
 	public Heroi(int linhaCaverna, int colunaCaverna, Caverna caverna) {
-		this.linhaCaverna = linhaCaverna;
-		this.colunaCaverna = colunaCaverna;
-		this.caverna = caverna;
+		super(linhaCaverna, colunaCaverna, caverna, 2);
 		caverna.incluirSalaHeroi(this, linhaCaverna, colunaCaverna);
 	}
 	
@@ -119,9 +116,6 @@ public class Heroi extends Componente {
 	
 	public boolean getMatouWumpus() {
 		return matouWumpus;
-	}
-	public int getPrioridade() {
-		return prioridade;
 	}
 	
  }
