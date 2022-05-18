@@ -11,5 +11,9 @@ public class Ouro extends Componente {
 	public char getTipo() {
 		return 'O';
 	}
+	
+	public int getPrioridade() {
+		return prioridade;
+	}
 
 }

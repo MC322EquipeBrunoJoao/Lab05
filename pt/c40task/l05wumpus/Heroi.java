@@ -22,6 +22,9 @@ public class Heroi extends Componente {
 			linhaCaverna++;
 			caverna.moverHeroi(this, linhaCaverna-1, colunaCaverna, linhaCaverna, colunaCaverna);
 		}
+		else {
+			System.out.println("O Heroi nao pode se mover para fora da caverna");
+		}
 	}
 	
 	public void moverAcima() {
@@ -29,6 +32,9 @@ public class Heroi extends Componente {
 			score -= 15;
 			linhaCaverna--;
 			caverna.moverHeroi(this, linhaCaverna+1, colunaCaverna, linhaCaverna, colunaCaverna);
+		}
+		else {
+			System.out.println("O Heroi nao pode se mover para fora da caverna");
 		}
 	}
 	
@@ -38,6 +44,9 @@ public class Heroi extends Componente {
 			colunaCaverna--;
 			caverna.moverHeroi(this, linhaCaverna, colunaCaverna+1, linhaCaverna, colunaCaverna);
 		}
+		else {
+			System.out.println("O Heroi nao pode se mover para fora da caverna");
+		}
 	}
 	
 	public void moverDireita() {
@@ -45,6 +54,9 @@ public class Heroi extends Componente {
 			score -= 15;
 			colunaCaverna++;
 			caverna.moverHeroi(this, linhaCaverna, colunaCaverna-1, linhaCaverna, colunaCaverna);
+		}
+		else {
+			System.out.println("O Heroi nao pode se mover para fora da caverna");
 		}
 	}
 	
@@ -71,6 +83,7 @@ public class Heroi extends Componente {
 	 * Retorna true se foi possivel matar o Wumpus com o estado atual do heroi. Caso contrario, retorna false.
 	 */
 	public void atirarFlecha() {
+		score -= 100;
 		if (flechaEquipada && randomGenerator.nextBoolean()) {
 			score += 500;
 			matouWumpus = true;

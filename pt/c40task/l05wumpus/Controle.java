@@ -38,17 +38,16 @@ public class Controle {
 			case "q":
 				status = 'q';
 				jogoAcabou = true;
+			default:
+				System.out.println("Comando de ação inválido, tente novamente");
 		}
 		if (heroi.getLinha() == 0 && heroi.getColuna() == 0 && heroi.getCarregandoOuro()) {
 			jogoAcabou = true;
 			heroi.addScore(1000);
-			status = 'w';
-			if (heroi.getMatouWumpus()) {
-				heroi.addScore(500);
-			}
+			status = 'W';
 		}
 		if (!heroi.getHeroiAtivo()) {
-			status = 'n';
+			status = 'L';
 			jogoAcabou = true;
 		}
 	}
@@ -76,17 +75,16 @@ public class Controle {
 			case 'q':
 				status = 'q';
 				jogoAcabou = true;
-
+			default:
+				System.out.println("Comando de ação inválido, tente novamente");
 		}
 		if (heroi.getLinha() == 0 && heroi.getColuna() == 0 && heroi.getCarregandoOuro()) {
 			jogoAcabou = true;
-			status = 'w';
-			if (heroi.getMatouWumpus()) {
-				heroi.addScore(1000);
-			}
+			heroi.addScore(1000);
+			status = 'W';
 		}
 		if (!heroi.getHeroiAtivo()) {
-			status = 'n';
+			status = 'L';
 			jogoAcabou = true;
 		}
 	}

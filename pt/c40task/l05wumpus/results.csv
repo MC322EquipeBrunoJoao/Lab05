@@ -10,25 +10,53 @@ status: x
 ----
 ----
 score: -15
-status: x
+status: P
 =====
 ##P-
 ----
 ----
 ----
 score: -30
-status: x
+status: P
 =====
-##bP
+##P-
 ----
 ----
 ----
-score: -1045
-status: x
+score: -30
+status: P
 =====
-##bP
+##b-
+--O-
 ----
 ----
+score: -145
+status: P
+=====
+##b-
+--P-
 ----
-score: -1045
-status: x
+----
+score: -145
+status: P
+=====
+##P-
+--#-
+----
+----
+score: -160
+status: P
+=====
+#Pb-
+--#-
+----
+----
+score: -175
+status: P
+=====
+P#b-
+--#-
+----
+----
+score: 810
+status: W

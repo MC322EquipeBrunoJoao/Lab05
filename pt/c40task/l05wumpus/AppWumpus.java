@@ -42,7 +42,7 @@ public class AppWumpus {
 				  controle.acaoHeroi(keyboard.nextLine());
 				  if (controle.jogoEmAndamento()) {
 				      System.out.println("=====");
-				      tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
+				      tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'P');
 					  caverna.imprime();
 					  System.out.println(controle);
 				  }
@@ -65,7 +65,7 @@ public class AppWumpus {
 				  controle.acaoHeroi(movements.charAt(i));
 				  if (controle.jogoEmAndamento()) {
 				      System.out.println("=====");
-					  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'x');
+					  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'P');
 					  caverna.imprime();
 					  System.out.println(controle);
 				  }
@@ -78,13 +78,13 @@ public class AppWumpus {
 	      System.out.println("=====");
 	      caverna.imprime();
 	      System.out.println(controle);
-	      if (controle.getStatus() == 'w') {
+	      if (controle.getStatus() == 'W') {
 	    	  System.out.println("Voce ganhou :D !!!");
-			  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'w');
+			  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'W');
 	      }
-	      else if (controle.getStatus() == 'n') {
+	      else if (controle.getStatus() == 'L') {
 	    	  System.out.println("Voce perdeu :( ...");
-	    	  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'n');
+	    	  tk.writeBoard(caverna.apresenta(), heroi.getScore(), 'L');
 	      }
 	      else {
 	    	  System.out.println("Volte sempre !");
