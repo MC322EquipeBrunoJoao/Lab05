@@ -1,7 +1,7 @@
 # Lab05
 ## Destaques
 
-O polimorfismo é bastante utilizado dentro da sala, visto que a sala recebe no construtor um vetor de componentes, que, fora o heroi, que precisa utilizar métodos dentro da sala, podem ser quaisquer.
+O polimorfismo é bastante utilizado dentro da sala, visto que a sala recebe no construtor um vetor de componentes, que, fora o heroi, que precisa utilizar métodos exclusivos dele dentro da sala, podem ser quaisquer.
 
 	public Sala(int x, int y, Componente componentes[]) {
 
