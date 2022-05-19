@@ -11,7 +11,7 @@ O polimorfismo é utilizado na classe sala, visto que seu construtor recebe um v
 		this.componentes = componentes;		
 	}
 
-Exploramos o encapsulamento tornando private os atributos das classes utilizadas, além da escrita de getters e setters para todos aqueles cujos valores deveriam ser consultados ou alterados por fora da classe. Dessa maneira, tomamos cuidado para que o comportamento interno de cada classe fosse o mais isolado e independente possível do restante do código. Abaixo, temos alguns dos métodos escritos para a classe Herói que explicitam o uso de encapsulamento. 
+Exploramos o encapsulamento tornando private os atributos das classes utilizadas, além da escrita de métodos de consulta e alteração para todos aqueles cujos valores deveriam ser alterados ou consultados por fora de sua respectiva classe. Dessa maneira, tomamos cuidado para que o comportamento interno de cada classe fosse o mais isolado e independente possível do restante do código. Abaixo, temos alguns dos métodos escritos para a classe Herói que explicitam o uso de encapsulamento.
 
 	public int getScore() {
 		return score;
