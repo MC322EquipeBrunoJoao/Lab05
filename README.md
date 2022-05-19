@@ -13,7 +13,7 @@ O polimorfismo é bastante utilizado dentro da sala, visto que a sala recebe no 
 
 
 
-Neste trecho, pode ser visto que a adição de uma nova componente para a sala é bem fácil, basta chamar o construtor da classe Componente(superclasse), atribuir sua prioridade, e chamar o método para a incluir na posição desejada na caverna.
+Neste trecho, pode ser visto que a adição de uma nova componente para a sala é bem fácil, basta chamar o construtor da classe Componente(superclasse), atribuir sua prioridade, e chamar o método para a incluir na posição desejada na caverna. Abaixo está como exemplo a classe Ouro.
 
 	public Componente (int linhaCaverna, int colunaCaverna, Caverna caverna, int prioridade) {
 		this.linhaCaverna = linhaCaverna;
